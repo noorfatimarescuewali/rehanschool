@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Facilitators — Rehan School</title>
+  <style>
+    :root{--accent:#0ea5e9;--muted:#6b7280}
+    body{font-family:Inter,system-ui,Arial;margin:0;background:#f8fbfe;color:#07223a}
+    .container{max-width:1100px;margin:24px auto;padding:0 18px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 10px 30px rgba(2,12,25,0.06);text-align:center}
+    .card img{width:96px;height:96px;border-radius:50%;object-fit:cover;margin:0 auto}
+    .muted{color:var(--muted);font-size:14px}
+    @media(max-width:880px){.grid{grid-template-columns:repeat(2,1fr)}nav{display:none}}
+    @media(max-width:520px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div style="display:flex;align-items:center;gap:12px;cursor:pointer" onclick="goTo('index.html')">
+        <img src="https://rehanschool.net/wp-content/uploads/2020/12/cropped-Rehan-Icon.png" style="height:44px;">
+        <h2 style="margin:0">Facilitators</h2>
+      </div>
+      <nav>
+        <a href="javascript:goTo('index.html')">Home</a>
+        <a href="javascript:goTo('curriculum.html')">Curriculum</a>
+        <a href="javascript:goTo('contact.html')">Contact</a>
+      </nav>
+    </header>
+
+    <p class="muted" style="margin-top:8px">Meet our teaching team and mentors — educators with industry experience and a passion for practical, internet-native learning.</p>
+
+    <section class="grid" aria-label="facilitators list">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=9e1b8a7a5d3cd2ae8c4d1acdb3e8c2b6" alt="">
+        <h3 style="margin:12px 0 6px">Rehan Allahwala</h3>
+        <p class="muted">Founder & Vision</p>
+        <p style="font-size:13px;color:var(--muted)">Serial entrepreneur and internet educator, focused on mentoring youth for the digital era.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1545996124-2b2f5d2a6d24?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcd" alt="">
+        <h3 style="margin:12px 0 6px">Mariam</h3>
+        <p class="muted">Coding Facilitator</p>
+        <p class="muted" style="font-size:13px">Hands-on coding mentor, hosts workshops and coding labs.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=ef01" alt="">
+        <h3 style="margin:12px 0 6px">Admissions Team</h3>
+        <p class="muted">Admissions & Outreach</p>
+        <p class="muted" style="font-size:13px">Connect with our team for campus visits, scholarships and programs.</p>
+      </div>
+    </section>
+
+    <footer style="margin-top:22px;color:var(--muted)">
+      <div>Want to join the team? <a href="javascript:goTo('contact.html')">Contact us</a></div>
+    </footer>
+  </div>
+
+  <script>
+    function goTo(path){ window.location.href = path; }
+  </script>
+</body>
+</html>
