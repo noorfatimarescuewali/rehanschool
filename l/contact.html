@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Rehan School</title>
+  <style>
+    :root{--accent:#0ea5e9;--muted:#6b7280}
+    body{font-family:Inter,system-ui,Arial;background:#f3f7fb;margin:0;color:#07223a}
+    .container{max-width:900px;margin:28px auto;padding:0 18px}
+    header{display:flex;justify-content:space-between;align-items:center}
+    .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(2,12,25,0.06);margin-top:14px}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input,textarea{padding:10px;border-radius:8px;border:1px solid #e5e7eb;font-size:14px}
+    textarea{grid-column:1/-1;min-height:120px;resize:vertical}
+    .muted{color:var(--muted)}
+    .full{grid-column:1/-1}
+    @media(max-width:720px){ form{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div style="display:flex;align-items:center;gap:12px;cursor:pointer" onclick="goTo('index.html')">
+        <img src="https://rehanschool.net/wp-content/uploads/2020/12/cropped-Rehan-Icon.png" style="height:44px;">
+        <h2 style="margin:0">Contact Us</h2>
+      </div>
+      <nav>
+        <a href="javascript:goTo('index.html')">Home</a>
+      </nav>
+    </header>
+
+    <div class="card">
+      <h3>Visit or Contact</h3>
+      <p class="muted">Office: R554+WF9, Sector 50 C Korangi, Karachi · UAN: +92-304-111-6044 · Email: info@rehanschool.net</p>
+
+      <hr style="margin:16px 0;border:none;border-top:1px dashed #eef2f7">
+
+      <h4>Send Us a Message</h4>
+      <!-- Note: client-only demo form (no server endpoint included) -->
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <input type="text" name="subject" placeholder="Subject" class="full">
+        <textarea name="message" placeholder="Write your message..." required></textarea>
+        <div class="full" style="text-align:left">
+          <button type="submit" style="padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:white;font-weight:700;cursor:pointer">Send Message</button>
+        </div>
+      </form>
+      <p id="result" class="muted" style="margin-top:10px"></p>
+    </div>
+  </div>
+
+  <script>
+    function goTo(path){ window.location.href = path; }
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const f = document.getElementById('contactForm');
+      const data = Object.fromEntries(new FormData(f).entries());
+      // This demo doesn't post to server. Save to localStorage (demo) and show success.
+      const storage = JSON.parse(localStorage.getItem('rehanschool_messages') || "[]");
+      storage.push({ ...data, time: new Date().toISOString() });
+      localStorage.setItem('rehanschool_messages', JSON.stringify(storage));
+      document.getElementById('result').textContent = "Thanks! Your message was saved (demo). We'll contact you soon.";
+      f.reset();
+    }
+  </script>
+</body>
+</html>
